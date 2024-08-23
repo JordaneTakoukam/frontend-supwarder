@@ -1,0 +1,27 @@
+.heroContent {
+    color: white;
+    text-align: center;
+    padding: 3rem;
+    background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fHNlY3VyaXR5fGVufDB8fHx8MTY0NjUyOTY1MA&ixlib=rb-1.2.1&q=80&w=1080') no-repeat center center;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.7);
+  }
+  
+  .features {
+    margin-top: 2rem;
+  }
+  
+  .features .MuiPaper-root {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .features .MuiPaper-root:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+  }
+  

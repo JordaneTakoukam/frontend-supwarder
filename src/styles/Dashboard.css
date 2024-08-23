@@ -1,0 +1,32 @@
+/* Dashboard.css */
+
+.drawerHeader {
+    background-color: #1976d2;
+    color: #fff;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .drawerItem {
+    padding: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .drawerItem:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .drawerItem .MuiSvgIcon-root {
+    color: #1976d2;
+  }
+  
+  .drawerItem .MuiListItemText-primary {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .drawerItem.selected {
+    background-color: #e3f2fd;
+  }
+  

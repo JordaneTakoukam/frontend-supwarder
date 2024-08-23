@@ -1,0 +1,99 @@
+/* src/styles/CreationElementForm.css */
+
+.form-container {
+    background-color: #f5f5f5; /* Couleur de fond légère pour le conteneur */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 20px; /* Espacement intérieur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    max-width: 900px; /* Largeur maximale du formulaire */
+    margin: 20px auto; /* Centrer le formulaire */
+  }
+  
+  .form-title {
+    font-weight: 600;
+    color: #333; /* Couleur de texte sombre pour le titre */
+    margin-bottom: 20px; /* Espacement inférieur */
+  }
+  
+  .text-field {
+    margin-bottom: 16px; /* Espacement entre les champs */
+  }
+  
+  .button-generate,
+  .button-add,
+  .button-attach,
+  .submit-button {
+    margin-top: 16px; /* Espacement supérieur */
+    border-radius: 4px; /* Coins arrondis pour les boutons */
+  }
+  
+  .button-generate {
+    color: #007bff; /* Couleur du texte du bouton */
+    border-color: #007bff; /* Couleur de la bordure du bouton */
+  }
+  
+  .button-generate:hover {
+    background-color: #e7f0ff; /* Couleur de fond lors du survol */
+  }
+  
+  .button-add {
+    background-color: #28a745; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border-color: #28a745; /* Couleur de la bordure */
+  }
+  
+  .button-add:hover {
+    background-color: #218838; /* Couleur de fond lors du survol */
+  }
+  
+  .button-attach {
+    color: #6c757d; /* Couleur de texte du bouton */
+    border-color: #6c757d; /* Couleur de la bordure */
+  }
+  
+  .button-attach:hover {
+    background-color: #e2e6ea; /* Couleur de fond lors du survol */
+  }
+  
+  .submit-button {
+    background-color: #007bff; /* Couleur de fond du bouton de soumission */
+    color: white; /* Couleur du texte */
+    border-color: #007bff; /* Couleur de la bordure */
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3; /* Couleur de fond lors du survol */
+  }
+  
+  .custom-fields-title {
+    font-weight: 600; /* Poids du texte */
+    color: #333; /* Couleur du texte */
+    margin-top: 24px; /* Espacement supérieur */
+    margin-bottom: 12px; /* Espacement inférieur */
+  }
+  
+  .custom-fields-container {
+    margin-top: 12px; /* Espacement supérieur */
+  }
+  
+  .custom-field {
+    padding: 16px;
+    background-color: #ffffff; /* Fond blanc pour chaque champ personnalisé */
+    border-radius: 4px; /* Coins arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-bottom: 12px; /* Espacement inférieur */
+  }
+  
+  .checkbox-group {
+    margin-top: 24px; /* Espacement supérieur */
+  }
+  
+  .file-input-container {
+    margin-top: 24px; /* Espacement supérieur */
+  }
+  
+  .file-info {
+    margin-top: 8px; /* Espacement supérieur */
+    color: #333; /* Couleur du texte */
+  }
+  

@@ -1,0 +1,86 @@
+/* Login.css */
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+   
+    background-size: cover;
+    padding: 0 1rem; /* Padding to ensure content does not touch edges */
+}
+
+/* Style pour le formulaire de connexion */
+.loginPaper {
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  text-align: center;
+  position: relative;
+}
+
+/* Style pour le titre du formulaire */
+.loginTitle {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Style pour les icônes de champ */
+.inputIcon {
+  color: #1976d2;
+}
+
+/* Style pour le bouton de connexion */
+.loginButton {
+  margin-top: 1.5rem;
+  background-color: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.loginButton:hover {
+  background-color: #125a9e;
+}
+
+/* Style pour les boutons de connexion avec des services externes */
+.socialButton {
+  margin-top: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  text-transform: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.socialButton:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Style pour les icônes sociales */
+.socialIcon {
+  margin-right: 0.5rem;
+}
+
+/* Style pour les liens de mot de passe oublié */
+.forgotPassword {
+  margin-top: 1rem;
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}
