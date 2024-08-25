@@ -77,6 +77,8 @@ const CreationTrousseauForm = () => {
               }
 
             ).then((reponse) => {
+              
+
               alert(JSON.stringify(reponse));
 
             })
