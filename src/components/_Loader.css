@@ -1,0 +1,28 @@
+/* Centrer le loader */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh; /* pleine hauteur de la fenêtre */
+  }
+  
+  /* Style du loader */
+  .loader {
+    border: 8px solid #f3f3f3; /* Couleur claire pour l'arrière-plan du loader */
+    border-top: 8px solid #3498db; /* Couleur de la partie animée du loader */
+    border-radius: 50%; /* Pour faire un cercle */
+    width: 60px; /* Largeur du loader */
+    height: 60px; /* Hauteur du loader */
+    animation: spin 1.5s linear infinite; /* Animation du loader */
+  }
+  
+  /* Animation de rotation */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
