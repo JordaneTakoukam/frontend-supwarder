@@ -46,11 +46,11 @@ const Accueil = () => {
   const fetchGroups = async () => {
     setLoadingGroupe(true);
     try {
-      const groups = [
-        { id: 1, name: 'Groupe 1', memberCount: 10 },
-        { id: 2, name: 'Groupe 2', memberCount: 8 },
-      ];
-      setData(prevData => ({ ...prevData, groups }));
+      // const groups = [
+      //   { id: 1, name: 'Groupe 1', memberCount: 10 },
+      //   { id: 2, name: 'Groupe 2', memberCount: 8 },
+      // ];
+      // setData(prevData => ({ ...prevData, groups }));
     } catch (error) {
       console.error('Error fetching groups:', error);
     } finally {
@@ -62,11 +62,11 @@ const Accueil = () => {
   const fetchImportantItems = async () => {
     setLoadingImportant(true);
     try {
-      const importantItems = [
-        { id: 1, name: 'Important Item 1' },
-        { id: 2, name: 'Important Item 2' },
-      ];
-      setData(prevData => ({ ...prevData, importantItems }));
+      // const importantItems = [
+      //   { id: 1, name: 'Important Item 1' },
+      //   { id: 2, name: 'Important Item 2' },
+      // ];
+      // setData(prevData => ({ ...prevData, importantItems }));
     } catch (error) {
       console.error('Error fetching important items:', error);
     } finally {
