@@ -5,10 +5,14 @@ import { config } from "./../_config/static_keys";
 import { decodeToken } from "./../middleware/middleware"
 import axios from 'axios';
 import Loader from './_Loader';
+import { useNavigate } from 'react-router-dom';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 
 
 const Accueil = () => {
+  const navigate = useNavigate();
+
   const [loadingTrousseau, setLoadingTrousseau] = useState(false);
   const [loadingGroupe, setLoadingGroupe] = useState(false);
   const [loadingImportant, setLoadingImportant] = useState(false);
@@ -62,17 +66,26 @@ const Accueil = () => {
   const fetchImportantItems = async () => {
     setLoadingImportant(true);
     try {
-      // const importantItems = [
-      //   { id: 1, name: 'Important Item 1' },
-      //   { id: 2, name: 'Important Item 2' },
-      // ];
-      // setData(prevData => ({ ...prevData, importantItems }));
-    } catch (error) {
-      console.error('Error fetching important items:', error);
-    } finally {
+      const response = await axios.get(
+        `${config.backend_url}/api/passwords`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      setData(prevData => ({ ...prevData, importantItems: response.data }));
+
       setLoadingImportant(false);
+
+    } catch (error) {
+      console.error('Error fetching des mot de passe:', error);
+      setLoadingImportant(false);
+
     }
   };
+
 
 
   // useEffect to fetch data on component mount
@@ -98,6 +111,17 @@ const Accueil = () => {
   const [user, setUser] = useState({
     name: userEmail,
   });
+
+
+  const [passwordVisibility, setPasswordVisibility] = useState({});
+
+  // Fonction pour basculer la visibilité du mot de passe
+  const togglePasswordVisibility = (id) => {
+    setPasswordVisibility(prevState => ({
+      ...prevState,
+      [id]: !prevState[id]
+    }));
+  };
 
 
 
@@ -160,7 +184,7 @@ const Accueil = () => {
                       />
                       <CardContent>
                         <Typography variant="body2" color="text.secondary">
-                          Nombre d'éléments : {trousseau.itemCount}
+                          Nombre d'éléments : {trousseau?.sharedWith.length || 0}
                         </Typography>
                       </CardContent>
                     </Card>
@@ -171,7 +195,7 @@ const Accueil = () => {
                   </Typography>
                 )}
             <Button
-              onClick={() => { fetchTrousseaux() }}
+              onClick={() => { navigate('/dashboard/list-trousseaux') }}
               variant="contained" sx={{ mt: 2, backgroundColor: '#1976d2', '&:hover': { backgroundColor: '#155a8a' } }}>
               Voir Tous les Trousseaux
             </Button>
@@ -212,7 +236,10 @@ const Accueil = () => {
                     Aucun groupe trouvé.
                   </Typography>
                 )}
-            <Button variant="contained" sx={{ mt: 2, backgroundColor: '#1976d2', '&:hover': { backgroundColor: '#155a8a' } }}>
+            <Button
+              onClick={() => { navigate('/dashboard/list-groupes') }}
+
+              variant="contained" sx={{ mt: 2, backgroundColor: '#1976d2', '&:hover': { backgroundColor: '#155a8a' } }}>
               Voir Tous les Groupes
             </Button>
           </Paper>
@@ -231,10 +258,30 @@ const Accueil = () => {
 
                 data.importantItems.length ? (
                   data.importantItems.map(item => (
-                    <Card key={item.id} sx={{ mb: 2, borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+                    <Card key={item._id} sx={{ mb: 2, borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
                       <CardContent>
-                        <Typography variant="body2" color="text.secondary">
-                          {item.name}
+                        <Typography variant="body2" color="text.secondary" display="flex" alignItems="center">
+                          {item.name}.
+                          <IconButton
+                            sx={{ mr: 2, cursor: 'pointer' }}
+                            edge="end"
+                            onClick={() => togglePasswordVisibility(item._id)} // Passer l'id pour gérer chaque mot de passe
+                          >
+                            <Box
+                              sx={{ ml: 2, cursor: 'pointer' }}
+                            >                            {passwordVisibility[item._id] ? <VisibilityOff /> : <Visibility />}
+                            </Box>                          </IconButton>
+                          <Typography
+                          
+                          sx={{ ml: -2, cursor: 'pointer' }}
+>
+                            {passwordVisibility[item._id] ? 'Cacher' : 'Afficher'}
+                          </Typography>
+                        </Typography>
+
+                        {/* Afficher ou cacher le mot de passe en fonction de l'état */}
+                        <Typography variant="body2" color="text.primary">
+                          {passwordVisibility[item._id] ? item.password : '**********'} {/* Mot de passe caché par défaut */}
                         </Typography>
                       </CardContent>
                     </Card>
@@ -244,7 +291,10 @@ const Accueil = () => {
                     Aucun élément important trouvé.
                   </Typography>
                 )}
-            <Button variant="contained" sx={{ mt: 2, backgroundColor: '#1976d2', '&:hover': { backgroundColor: '#155a8a' } }}>
+            <Button
+              onClick={() => { navigate('/dashboard/list-elements-important') }}
+
+              variant="contained" sx={{ mt: 2, backgroundColor: '#1976d2', '&:hover': { backgroundColor: '#155a8a' } }}>
               Voir Tous les Éléments Importants
             </Button>
           </Paper>

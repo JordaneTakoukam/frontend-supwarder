@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, Drawer, List, ListItem, ListItemText, Typography, Divider, Paper } from '@mui/material'; // Assurez-vous que Paper est importé
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Home, AccountCircle, Description, Create, VpnKey, Settings, GetApp, ImportExport, Chat, Group } from '@mui/icons-material';
+import { Home, Folder, People, Star, VpnKey, Create, AccountCircle, Description, Chat, Settings, GetApp, ImportExport } from '@mui/icons-material';
 import CreationElementForm from '../components/CreationElementForm';
 import PasswordGenerator from '../components/PasswordGenerator';
 import CreationTrousseauForm from '../components/CreationTrousseauForm';
-import TrousseauList from '../components/TrousseauList';
+import TrousseauList from '../components/ListTrousseau';
 import TrousseauPage from '../pages/TrousseauPage';
 import Messagerie from '../components/Messagerie';
 import Import from '../components/Import'
@@ -13,21 +13,32 @@ import Export from '../components/Export';
 import Parametres from '../components/Parametres';
 import Accueil from '../components/Accueil';
 import '../styles/Dashboard.css';
+import ListGroup from '../components/ListeGroupe';
+import ListImportant from '../components/ListImportant';
 
-const drawerWidth = 240;
+const drawerWidth = 320;
 
 const menuItems = [
   { text: 'Accueil', icon: <Home />, path: 'accueil' },
+
+  { text: 'Liste des Trousseaux', icon: <Folder />, path: 'list-trousseaux' },
+  { text: 'Liste des Éléments Importants', icon: <Star />, path: 'list-elements-important' },
+  { text: 'Liste des groupes', icon: <People />, path: 'list-groupes' },
+
+  { text: 'Création d\'un trousseau', icon: <VpnKey />, path: 'creation-dun-trousseau' },
+  { text: 'Génération de mot de passe', icon: <VpnKey />, path: 'generation-de-mot-de-passe' },
+  { text: 'Création d\'un élément', icon: <Create />, path: 'creation-dun-element' },
+
+
   { text: 'Comptes', icon: <AccountCircle />, path: 'comptes' },
   { text: 'Documents', icon: <Description />, path: 'documents' },
-  { text: 'Génération de mot de passe', icon: <Create />, path: 'generation-de-mot-de-passe' },
-  { text: 'Création d\'un trousseau', icon: <VpnKey />, path: 'creation-dun-trousseau' },
-  { text: 'Création d\'un élément', icon: <Create />, path: 'creation-dun-element' },
+  { text: 'Messagerie instantanée', icon: <Chat />, path: 'messagerie' },
+
+
   { text: 'Paramètres', icon: <Settings />, path: 'parametres' },
   { text: 'Exporter', icon: <GetApp />, path: 'exporter' },
-  { text: 'Import', icon: <ImportExport />, path: 'import' },
-  { text: 'Messagerie instantanée', icon: <Chat />, path: 'messagerie' },
-  { text: 'Liste des Trousseaux', icon: <Group />, path: 'list-trousseaux' }
+  { text: 'Importer', icon: <ImportExport />, path: 'import' }
+
 ];
 
 const Dashboard = () => {
@@ -109,18 +120,24 @@ const Dashboard = () => {
         </Paper>
 
         <Routes>
-          <Route path="accueil" element={<Accueil/>} />
+          <Route path="accueil" element={<Accueil />} />
           <Route path="comptes" element={<div>Comptes Content</div>} />
           <Route path="documents" element={<div>Documents Content</div>} />
           <Route path="generation-de-mot-de-passe" element={<PasswordGenerator />} />
           <Route path="creation-dun-trousseau" element={<CreationTrousseauForm />} />
           <Route path="creation-dun-element" element={<CreationElementForm />} />
-          <Route path="parametres" element={<Parametres/>} />
-          <Route path="exporter" element={<Export/>} />
-          <Route path="import" element={<Import/>} />
+          <Route path="parametres" element={<Parametres />} />
+          <Route path="exporter" element={<Export />} />
+          <Route path="import" element={<Import />} />
           <Route path="messagerie" element={<Messagerie />} />
+
+
           <Route path="list-trousseaux" element={<TrousseauList />} />
           <Route path="groupe/:trousseauName" element={<TrousseauPage />} />
+
+          <Route path="list-groupes" element={<ListGroup />} />
+          <Route path="list-elements-important" element={<ListImportant />} />
+
         </Routes>
       </Box>
     </Box>

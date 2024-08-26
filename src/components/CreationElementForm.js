@@ -6,8 +6,13 @@ import AttachFile from '@mui/icons-material/AttachFile';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import '../styles/CreationElementForm.css'; // Mise à jour du chemin
+import { config } from '../_config/static_keys';
 
 const CreationElementForm = () => {
+
+  const token = localStorage.getItem(config.token);
+
+
   const [formData, setFormData] = useState({
     nom: '',
     identifiant: '',
